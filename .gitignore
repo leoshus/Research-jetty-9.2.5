@@ -4,3 +4,47 @@ pom.xml.releaseBackup
 pom.xml.versionsBackup
 pom.xml.next
 release.properties
+
+# eclipse
+.classpath
+.project
+.settings
+.gitignore
+
+# maven
+target/
+*/src/main/java/META-INF/
+*.versionsBackup
+bin/
+
+# common junk
+*.log
+*.swp
+*.diff
+*.patch
+
+# intellij
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Mac filesystem dust
+.DS_Store
+
+# pmd
+.pmdruleset
+.pmd
+
+# netbeans
+/nbproject
+
+# vim
+.*.sw[a-p]
+
+# merge tooling
+*.orig
+
+#maven
+*.versionsBackup
+*.releaseBackup
