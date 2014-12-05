@@ -103,13 +103,17 @@ public class Main
         return str.toString();
     }
 
+    /**
+     * jetty 启动入口
+     * @param args
+     */
     public static void main(String[] args)
     {
         try
         {
             Main main = new Main();
-            StartArgs startArgs = main.processCommandLine(args);
-            main.start(startArgs);
+            StartArgs startArgs = main.processCommandLine(args);//解释命令行参数 homeDir baseDir
+            main.start(startArgs);//启动jetty
         }
         catch (UsageException e)
         {
@@ -585,7 +589,7 @@ public class Main
     {
         // Processing Order is important!
         // ------------------------------------------------------------
-        // 1) Configuration Locations
+        // 1) Configuration Locations 定位jetty配置的路径
         CommandLineConfigSource cmdLineSource = new CommandLineConfigSource(cmdLine);
         baseHome = new BaseHome(cmdLineSource);
 
@@ -593,19 +597,21 @@ public class Main
         StartLog.debug("jetty.base=%s",baseHome.getBase());
 
         // ------------------------------------------------------------
-        // 2) Parse everything provided.
+        // 2) Parse everything provided. 
+        //解析各种开始 指令 如--help/-?、--debug、--testing-mode、--stop、--download=、--create-files、--list-classpath、
+        //等等 具体见StartArgs.parse(final String rawarg, String source, boolean replaceProps)
         // This would be the directory information +
         // the various start inis
         // and then the raw command line arguments
         StartLog.debug("Parsing collected arguments");
         StartArgs args = new StartArgs();
-        args.parse(baseHome.getConfigSources());
+        args.parse(baseHome.getConfigSources());//解析命令行参数入口
 
         // ------------------------------------------------------------
         // 3) Module Registration
         Modules modules = new Modules(baseHome,args);
         StartLog.debug("Registering all modules");
-        modules.registerAll();
+        modules.registerAll();//Module 注册
 
         // ------------------------------------------------------------
         // 4) Active Module Resolution
