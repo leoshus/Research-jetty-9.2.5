@@ -94,7 +94,7 @@
                   <outputDirectory>${assembly-directory}/</outputDirectory>
                   <destFileName>VERSION.txt</destFileName>
                 </artifactItem>
-                <artifactItem>
+         <!--        <artifactItem>
                   <groupId>org.eclipse.jetty</groupId>
                   <artifactId>test-jetty-webapp</artifactId>
                   <version>${project.version}</version>
@@ -153,7 +153,7 @@
                   <includes>**</includes>
                   <outputDirectory>${assembly-directory}/demo-base/webapps</outputDirectory>
                   <destFileName>async-rest.war</destFileName>
-                </artifactItem>
+                </artifactItem> -->
                 <artifactItem>
                   <groupId>org.eclipse.jetty</groupId>
                   <artifactId>jetty-start</artifactId>
@@ -227,7 +227,7 @@
             </configuration>
           </execution>
 
-          <execution>
+          <!-- <execution>
             <id>unpack-test-jaas-config</id>
             <phase>process-resources</phase>
             <goals>
@@ -247,9 +247,9 @@
               </artifactItems>
               <excludes>META-INF/**</excludes>
             </configuration>
-          </execution>
+          </execution> -->
 
-          <execution>
+          <!-- <execution>
             <id>unpack-test-jndi-config</id>
             <phase>process-resources</phase>
             <goals>
@@ -291,7 +291,7 @@
               </artifactItems>
               <excludes>META-INF/**</excludes>
             </configuration>
-          </execution>
+          </execution> -->
 
           <execution>
             <id>copy-lib-deps</id>
@@ -685,7 +685,7 @@
       <artifactId>jetty-deploy</artifactId>
       <version>${project.version}</version>
     </dependency>
-    <dependency>
+    <!-- <dependency>
       <groupId>org.eclipse.jetty</groupId>
       <artifactId>test-jetty-webapp</artifactId>
       <type>war</type>
@@ -696,7 +696,7 @@
       <artifactId>test-proxy-webapp</artifactId>
       <type>war</type>
       <version>${project.version}</version>
-    </dependency>
+    </dependency> -->
     <dependency>
       <groupId>org.eclipse.jetty</groupId>
       <artifactId>jetty-jmx</artifactId>
