@@ -451,8 +451,6 @@
     <module>jetty-jaspi</module>
     <module>jetty-rewrite</module>
     <module>jetty-nosql</module>
-    <module>tests</module>
-    <module>examples</module>
     <module>jetty-quickstart</module>
     <module>jetty-distribution</module>
     <module>jetty-runner</module>
