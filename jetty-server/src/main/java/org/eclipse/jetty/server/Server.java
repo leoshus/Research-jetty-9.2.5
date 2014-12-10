@@ -314,15 +314,15 @@ public class Server extends HandlerWrapper implements Attributes
     {
         //If the Server should be stopped when the jvm exits, register
         //with the shutdown handler thread.
-        if (getStopAtShutdown())
+        if (getStopAtShutdown())//注册关闭钩子
             ShutdownThread.register(this);
 
         //Register the Server with the handler thread for receiving
-        //remote stop commands
+        //remote stop commands 为Server注册远程中断命令监测
         ShutdownMonitor.register(this);
         
         //Start a thread waiting to receive "stop" commands.
-        ShutdownMonitor.getInstance().start(); // initialize
+        ShutdownMonitor.getInstance().start(); // initialize 启动命令监测的守护线程
 
         LOG.info("jetty-" + getVersion());
         HttpGenerator.setJettyVersion(HttpConfiguration.SERVER_VERSION);
